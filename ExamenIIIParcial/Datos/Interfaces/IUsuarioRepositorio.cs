@@ -10,6 +10,7 @@ namespace Datos.Interfaces
         Task<IEnumerable<Usuario>> GetLista();
 
         Task<Usuario> GetPorCodigo(string codigo);
+        Task <bool> ValidarUsuario (Login login);
         
     }
 }

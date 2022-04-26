@@ -1,9 +1,19 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<AuthorizeView Roles="Administrador">
+    <Authorized Context="AuthenticationState">
+        <h1>Bienvenido Administrador</h1>
+    </Authorized>
+</AuthorizeView>
 
-<h1>Hello, world!</h1>
+<AuthorizeView Roles="Usuario">
+    <Authorized Context="AuthenticationState">
+        <h1>Bienvenido Usuario</h1>
+    </Authorized>
+</AuthorizeView>
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+<AuthorizeView>
+    <NotAuthorized>
+        <h2>Debe identificarse para poder acceder a la aplicación</h2>
+    </NotAuthorized> 
+</AuthorizeView>
